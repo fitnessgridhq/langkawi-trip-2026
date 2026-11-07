@@ -524,6 +524,15 @@
       </div>
     </div>
 
+    <!-- Quick Check-In Hub Banner -->
+    <div style="background: var(--sheet); border: 1px solid var(--border-strong); border-radius: 12px; padding: 12px 16px; margin-bottom: 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; box-shadow: 0 2px 8px rgba(18, 20, 23, 0.04);">
+      <div style="font-size: 13px; color: var(--carbon); line-height: 1.4;">
+        <span style="font-family: var(--font-display); font-weight: 800; color: var(--vermillion); text-transform: uppercase; letter-spacing: 0.5px;">Check-In Quick Ref:</span><br>
+        Flight PNRs: <code style="background: #EBF4FC; padding: 2px 5px; border-radius: 4px; font-weight: bold; color: #0F2B48;">BF45BQ</code> & <code style="background: #EBF4FC; padding: 2px 5px; border-radius: 4px; font-weight: bold; color: #0F2B48;">D4KWZY</code> · Villa Ref: <code style="background: #E8F2EC; padding: 2px 5px; border-radius: 4px; font-weight: bold; color: #133821;">R260620001</code> (RM 600 cash deposit)
+      </div>
+      <button onclick="switchTab('sos')" style="background: #0F2B48; color: #FFFFFF; font-family: var(--font-display); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; padding: 8px 14px; border-radius: 8px; border: none; cursor: pointer; white-space: nowrap;">All Bookings &rarr;</button>
+    </div>
+
     <!-- Live Countdown -->
     <div class="countdown-box">
       <span class="countdown-title">Takeoff in:</span>
@@ -532,11 +541,11 @@
 
     <!-- Navigation Tabs -->
     <div class="tabs-nav">
-      <button class="tab-btn active" onclick="switchTab('day1')">Day 1 (Sun)</button>
-      <button class="tab-btn" onclick="switchTab('day2')">Day 2 (Mon)</button>
-      <button class="tab-btn" onclick="switchTab('day3')">Day 3 (Tue)</button>
-      <button class="tab-btn" onclick="switchTab('pack')">Pack</button>
-      <button class="tab-btn" onclick="switchTab('sos')">Contacts</button>
+      <button class="tab-btn active" data-tab="day1" onclick="switchTab('day1')">Day 1 (Sun)</button>
+      <button class="tab-btn" data-tab="day2" onclick="switchTab('day2')">Day 2 (Mon)</button>
+      <button class="tab-btn" data-tab="day3" onclick="switchTab('day3')">Day 3 (Tue)</button>
+      <button class="tab-btn" data-tab="pack" onclick="switchTab('pack')">Pack</button>
+      <button class="tab-btn" data-tab="sos" onclick="switchTab('sos')">Bookings & SOS</button>
     </div>
 
     <!-- DAY 1 TAB -->
@@ -549,14 +558,34 @@
       <div class="timeline">
 
         <!-- 08:30 -->
-        <div class="t-item">
+        <div class="t-item highlight">
           <div class="card">
             <div class="card-top">
               <span class="time-tag">08:30 AM</span>
-              <span class="marker-pill marker-blue">Subang SZB</span>
+              <span class="marker-pill marker-blue">Subang SZB · Flight Check-In</span>
             </div>
-            <div class="card-title">Assemble at Subang Airport (SZB)</div>
-            <div class="card-desc">Baggage drop and boarding for flight <b>MH5362</b> (Firefly codeshare). Remember not to park personal cars at Subang.</div>
+            <div class="card-title">Assemble at Subang Airport (SZB) & Flight Check-In</div>
+            <div class="card-desc">
+              Baggage drop, physical counter check-in, and boarding for flight <b>Malaysia Airlines MH5362</b> (Firefly ATR 72 codeshare). Departs 10:10 AM from Subang (SZB), lands 11:30 AM at Langkawi (LGK).
+              <div style="margin-top: 10px; padding: 12px; background: rgba(15, 43, 72, 0.05); border-radius: 8px; border-left: 3px solid #0F2B48;">
+                <b style="color: #0F2B48;">Malaysia Airlines Booking References (PNRs):</b>
+                <ul style="margin: 6px 0 6px 16px; font-size: 13px;">
+                  <li><b>Group 1 (6 pax):</b> Booking Ref <b><code style="background: #EBF4FC; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: #0F2B48;">BF45BQ</code></b> / <b><code style="background: #EBF4FC; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: #0F2B48;">D4GAIG</code></b><br>
+                  <span style="font-size: 12px; color: #555;">Kai Hoong, Laurina Tan, Abby Lee (Jie Ying Lee), Gee Jia Ho, Prisca Ho (Siu Ling How), JY Ang (Jeat Yinn Ang)</span></li>
+                  <li style="margin-top: 6px;"><b>Group 2 (7 pax):</b> Booking Ref <b><code style="background: #EBF4FC; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: #0F2B48;">D4KWZY</code></b> / <b><code style="background: #EBF4FC; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: #0F2B48;">D4MRIL</code></b><br>
+                  <span style="font-size: 12px; color: #555;">Ryan Lim, TSL Tan, SC Lim, An Yu Hee, Yun Lin Wong, Ze Yi Lim, Yunru Tan</span></li>
+                </ul>
+                <div style="font-size: 12px; color: #555; margin-top: 6px; line-height: 1.45;">
+                  • <b>Online Web Check-in:</b> Opens 48h prior on the Malaysia Airlines website/app. Enter PNR + passenger last name.<br>
+                  • <b>Required ID:</b> Physical MyKad (adults/children) or original birth certificate / passport required for counter check-in and security gate.<br>
+                  • <b>Baggage Allowance:</b> 20kg checked baggage per adult + 7kg cabin carry-on.
+                </div>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a class="btn btn-maps" target="_blank" href="https://www.malaysiaairlines.com/my/en/plan-your-trip/check-in.html">Malaysia Airlines Web Check-In</a>
+              <a class="btn btn-maps" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Sultan%20Abdul%20Aziz%20Shah%20Airport%2C%20Subang">Subang Airport on Maps</a>
+            </div>
           </div>
         </div>
 
@@ -605,23 +634,31 @@
         </div>
 
         <!-- 14:00 - 14:40 -->
-        <div class="t-item">
+        <div class="t-item highlight">
           <div class="card">
             <div class="card-top">
               <span class="time-tag">14:00 to 14:40 PM</span>
-              <span class="marker-pill marker-sage">PAID · 2 POOL VILLAS</span>
+              <span class="marker-pill marker-sage">VILLA CHECK-IN · FULLY PAID</span>
             </div>
-            <div class="card-title">The Langkawi Luxury (Villa Drop & Snack Run)</div>
+            <div class="card-title">The Langkawi Luxury: Villa Check-In & Bag Drop</div>
             <div class="card-desc">
-              Head to <b>Lavannya Residences, Jalan Pantai Tengah</b> to check into our 2x Vibrant Pool Villas, drop luggage in rooms, and grab duty-free water/drinks/snacks from the nearby Cenang mart before heading to the mountain.
-              <ul style="margin-top: 8px;">
-                <li><b>Status:</b> Fully paid (RM 4,004.00, Ref 192047527M).</li>
-                <li><b>At Check-in:</b> RM 600 cash refundable security deposit (RM 300/villa).</li>
-              </ul>
+              Check into our <b>2x Vibrant Pool Villas</b> at <b>The Langkawi Luxury</b> (Lavannya Residences, Jalan Pantai Tengah). Drop luggage, refresh, and pick up duty-free snacks/water:
+              <div style="margin-top: 10px; padding: 12px; background: rgba(19, 56, 33, 0.05); border-radius: 8px; border-left: 3px solid #133821;">
+                <b style="color: #133821;">Official Villa Booking & Check-In Details:</b>
+                <ul style="margin: 6px 0 6px 16px; font-size: 13px;">
+                  <li><b>Booking / Proforma Invoice Ref:</b> <b><code style="background: #E8F2EC; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: #133821;">R260620001</code></b></li>
+                  <li><b>Payment Status:</b> <b>FULLY PAID RM 4,004.00</b> (Maybank Transfer Ref ID: <code>192047527M</code> to Cenang Property Management).</li>
+                  <li><b>Units Booked:</b> <b>2x Vibrant Pool Villa</b> (2 units with private pools, multi-room, living hall & kitchen, 2 nights).</li>
+                  <li><b>Check-in / Check-out Times:</b> Official Check-in <b>15:00 PM</b> (early registration & bag drop at 14:00 PM) · Check-out <b>12:00 PM</b> (Tue 10 Nov).</li>
+                  <li><b>Counter Requirement (Cash Deposit):</b> <b>RM 600 cash refundable security deposit</b> (RM 300 cash per villa, returned upon checkout room inspection).</li>
+                  <li><b>Key Handover & Front Desk:</b> Main reception at Avenue South, Lavannya Residences. Lead guest (Kai Hoong) presents MyKad.</li>
+                </ul>
+              </div>
             </div>
             <div class="card-actions">
               <a class="btn btn-maps" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Lavannya%20Residences%2C%20Jalan%20Pantai%20Tengah%2C%20Langkawi">Google Maps</a>
-              <a class="btn btn-call" href="tel:+6049558228">Call Villa (+604-955 8228)</a>
+              <a class="btn btn-call" href="tel:+6049558228">Call Front Desk (+604-955 8228)</a>
+              <a class="btn btn-call" href="tel:+60198928229">Reservations (+6019-892 8229)</a>
             </div>
           </div>
         </div>
@@ -981,11 +1018,29 @@
           <div class="card">
             <div class="card-top">
               <span class="time-tag">18:15 to 20:40 PM</span>
-              <span class="marker-pill marker-blue">HIGH-BUFFER CHECK-IN</span>
+              <span class="marker-pill marker-blue">AIRPORT CHECK-IN · 2H 25M BUFFER</span>
             </div>
-            <div class="card-title">Early Airport Check-In & Boarding (2h 25m Buffer)</div>
+            <div class="card-title">LGK Airport Check-In & Boarding: Flight MH1459</div>
             <div class="card-desc">
-              Early arrival gives our 13-pax group total peace of mind for Malaysia Airlines <b>MH1459</b>. Drop checked bags without queue stress, smooth security clearance with toddlers, airside duty-free shopping, OldTown / Starbucks coffee, and relaxed gate boarding at 20:00.
+              Early arrival gives our 13-pax group total peace of mind for our return flight on <b>Malaysia Airlines MH1459</b> (Boeing 737-800 mainline):
+              <div style="margin-top: 10px; padding: 12px; background: rgba(15, 43, 72, 0.05); border-radius: 8px; border-left: 3px solid #0F2B48;">
+                <b style="color: #0F2B48;">Return Flight MH1459 Check-In Details:</b>
+                <ul style="margin: 6px 0 6px 16px; font-size: 13px;">
+                  <li><b>Flight & Aircraft:</b> <b>Malaysia Airlines MH1459</b> (Boeing 737-800 mainline).</li>
+                  <li><b>Route:</b> Langkawi Airport (LGK) &rarr; <b>KLIA Terminal 1 (KUL)</b>.</li>
+                  <li><b>Departure Time:</b> <b>20:40 PM</b> (Gate closes 20:20 PM) &rarr; Lands <b>21:55 PM</b> at KLIA T1.</li>
+                  <li><b>Group 1 (6 pax) PNRs:</b> <b><code style="background: #EBF4FC; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: #0F2B48;">BF45BQ</code></b> / <b><code style="background: #EBF4FC; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: #0F2B48;">D4GAIG</code></b><br>
+                  <span style="font-size: 12px; color: #555;">Kai Hoong, Laurina Tan, Abby Lee, Gee Jia Ho, Prisca Ho, JY Ang</span></li>
+                  <li style="margin-top: 6px;"><b>Group 2 (7 pax) PNRs:</b> <b><code style="background: #EBF4FC; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: #0F2B48;">D4KWZY</code></b> / <b><code style="background: #EBF4FC; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: #0F2B48;">D4MRIL</code></b><br>
+                  <span style="font-size: 12px; color: #555;">Ryan Lim, TSL Tan, SC Lim, An Yu Hee, Yun Lin Wong, Ze Yi Lim, Yunru Tan</span></li>
+                  <li style="margin-top: 6px;"><b>Counter Check-in & Baggage:</b> Malaysia Airlines counters at LGK Ground Floor. Present PNR / MyKad to print boarding passes, check 20kg bags, and tag toddler strollers for gate collection.</li>
+                  <li><b>2h 25m Buffer:</b> Zero queue rush, smooth toddler security screening, airside duty-free shopping, ZUS / Starbucks coffee, and relaxed gate boarding at 20:00.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a class="btn btn-maps" target="_blank" href="https://www.malaysiaairlines.com/my/en/plan-your-trip/check-in.html">Malaysia Airlines Web Check-In</a>
+              <a class="btn btn-maps" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Langkawi%20International%20Airport%2C%20Padang%20Matsirat%2C%20Langkawi">LGK Airport on Maps</a>
             </div>
           </div>
         </div>
@@ -1048,12 +1103,87 @@
       </div>
     </div>
 
-    <!-- CONTACTS TAB -->
+    <!-- CONTACTS & BOOKINGS TAB -->
     <div id="sos" class="day-view">
       <div class="day-header">
-        <h2>Key Contacts & Bookings</h2>
-        <span>Direct 1-tap dial</span>
+        <h2>Bookings & Master Check-In</h2>
+        <span>Official references & 1-tap dial</span>
       </div>
+
+      <!-- MASTER BOOKING & CHECK-IN CARDS -->
+      <div style="background: var(--sheet); border: 1px solid var(--border-strong); border-radius: 14px; padding: 16px; margin-bottom: 16px; box-shadow: 0 2px 10px rgba(18, 20, 23, 0.04);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <span style="font-family: var(--font-display); font-size: 15px; font-weight: 900; color: #0F2B48; text-transform: uppercase; letter-spacing: 0.5px;">✈️ Flight Check-In Details</span>
+          <span class="marker-pill marker-blue">Malaysia Airlines</span>
+        </div>
+        <div style="font-size: 13px; color: var(--body); line-height: 1.48;">
+          <b>Outbound:</b> Sunday 8 Nov · <b>MH5362</b> (Subang SZB 10:10 AM &rarr; LGK 11:30 AM)<br>
+          <b>Return:</b> Tuesday 10 Nov · <b>MH1459</b> (LGK 20:40 PM &rarr; <b>KLIA Terminal 1 KUL</b> 21:55 PM)<br>
+          <div style="margin-top: 8px; padding: 10px; background: #F2F7FC; border-radius: 8px; border-left: 3px solid #0F2B48;">
+            <b>Airline Booking References (PNRs):</b>
+            <ul style="margin: 4px 0 4px 16px; font-size: 12.5px;">
+              <li><b>Group 1 (6 pax):</b> <b><code style="background: #E0EDF9; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: #0F2B48;">BF45BQ</code></b> / <b><code style="background: #E0EDF9; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: #0F2B48;">D4GAIG</code></b><br>
+              <span style="color: #555;">Kai Hoong, Laurina Tan, Abby Lee (Jie Ying Lee), Gee Jia Ho, Prisca Ho, JY Ang</span></li>
+              <li style="margin-top: 4px;"><b>Group 2 (7 pax):</b> <b><code style="background: #E0EDF9; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: #0F2B48;">D4KWZY</code></b> / <b><code style="background: #E0EDF9; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: #0F2B48;">D4MRIL</code></b><br>
+              <span style="color: #555;">Ryan Lim, TSL Tan, SC Lim, An Yu Hee, Yun Lin Wong, Ze Yi Lim, Yunru Tan</span></li>
+            </ul>
+            <div style="font-size: 12px; color: #555; margin-top: 4px;">
+              • Web check-in opens 48 hours prior at malaysiaairlines.com.<br>
+              • Bring physical MyKad (adults/kids) or original birth cert / passport.<br>
+              • 20kg checked baggage + 7kg cabin carry-on per adult.
+            </div>
+          </div>
+        </div>
+        <div class="card-actions" style="margin-top: 10px;">
+          <a class="btn btn-maps" target="_blank" href="https://www.malaysiaairlines.com/my/en/plan-your-trip/check-in.html">Malaysia Airlines Web Check-In</a>
+        </div>
+      </div>
+
+      <div style="background: var(--sheet); border: 1px solid var(--border-strong); border-radius: 14px; padding: 16px; margin-bottom: 16px; box-shadow: 0 2px 10px rgba(18, 20, 23, 0.04);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <span style="font-family: var(--font-display); font-size: 15px; font-weight: 900; color: #133821; text-transform: uppercase; letter-spacing: 0.5px;">🏡 Villa Check-In Details</span>
+          <span class="marker-pill marker-sage">FULLY PAID · RM 4,004</span>
+        </div>
+        <div style="font-size: 13px; color: var(--body); line-height: 1.48;">
+          <b>Property:</b> <b>The Langkawi Luxury</b> (Avenue South, Lavannya Residences, Jalan Pantai Tengah)<br>
+          <b>Units:</b> 2x Vibrant Pool Villa (Private pools, living hall, kitchen, 2 nights)<br>
+          <div style="margin-top: 8px; padding: 10px; background: #F0F6F2; border-radius: 8px; border-left: 3px solid #133821;">
+            <b>Booking & Check-In Protocol:</b>
+            <ul style="margin: 4px 0 4px 16px; font-size: 12.5px;">
+              <li><b>Booking / Proforma Ref:</b> <b><code style="background: #DCEBE0; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: #133821;">R260620001</code></b></li>
+              <li><b>Payment Ref ID:</b> <code>192047527M</code> (Fully paid to Cenang Property Management, Maybank <code>5521 5200 3418</code>).</li>
+              <li><b>Check-in Time:</b> Official <b>15:00 PM</b> (Pre-checkin & luggage drop available at 14:00 PM).</li>
+              <li><b>Check-out Time:</b> <b>12:00 PM</b> (Tuesday 10 Nov).</li>
+              <li><b>Cash Deposit at Front Desk:</b> <b>RM 600 cash total</b> (RM 300 cash per villa, refundable upon room inspection).</li>
+              <li><b>Key Collection:</b> Main reception at Lavannya Residences. Lead guest (Kai Hoong) presents MyKad.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-actions" style="margin-top: 10px;">
+          <a class="btn btn-call" href="tel:+6049558228">Call Front Desk (+604-955 8228)</a>
+          <a class="btn btn-call" href="tel:+60198928229">Reservations (+6019-892 8229)</a>
+          <a class="btn btn-maps" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Lavannya%20Residences%2C%20Jalan%20Pantai%20Tengah%2C%20Langkawi">Google Maps</a>
+        </div>
+      </div>
+
+      <div style="background: var(--sheet); border: 1px solid var(--border-strong); border-radius: 14px; padding: 16px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(18, 20, 23, 0.04);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <span style="font-family: var(--font-display); font-size: 15px; font-weight: 900; color: #8C3A00; text-transform: uppercase; letter-spacing: 0.5px;">🚗 Car Rental Handover</span>
+          <span class="marker-pill marker-peach">2 MPVs · INNOVA + ALZA</span>
+        </div>
+        <div style="font-size: 13px; color: var(--body); line-height: 1.48;">
+          <b>Provider:</b> <b>M. Hairi Services</b> (Invoice <code>INV9109</code>, rental settled)<br>
+          <b>Vehicles:</b> 1 unit Toyota Innova Zenix + 1 unit Perodua Alza (covers all 13 travellers)<br>
+          <b>Pickup:</b> Sunday 8 Nov 11:30 AM at LGK Airport Arrival Hall<br>
+          <b>Return:</b> Tuesday 10 Nov 18:00 PM at LGK Airport Arrival Hall (Refuel at Petronas Padang Matsirat first)<br>
+          <b>Deposit:</b> RM 100 refundable key deposit at handover. Contact Hairi: <code>+6017-777 0078</code> / <code>+6017-440 4766</code>.
+        </div>
+        <div class="card-actions" style="margin-top: 10px;">
+          <a class="btn btn-call" href="tel:+60177770078">Call Hairi (+6017-777 0078)</a>
+        </div>
+      </div>
+
+      <div style="font-family: var(--font-display); font-size: 14px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 12px; padding-left: 2px;">Quick Dial Contacts</div>
 
       <div class="contact-card">
         <div class="contact-info">
@@ -1158,8 +1288,10 @@
     function switchTab(tabId) {
       document.querySelectorAll('.day-view').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-      document.getElementById(tabId).classList.add('active');
-      event.target.classList.add('active');
+      const targetView = document.getElementById(tabId);
+      if (targetView) targetView.classList.add('active');
+      const targetBtn = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
+      if (targetBtn) targetBtn.classList.add('active');
       window.scrollTo({ top: 160, behavior: 'smooth' });
     }
 
